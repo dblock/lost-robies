@@ -52,13 +52,14 @@ async function listRobbies() {
       if (_.startsWith(metadata.name, 'AI Generated Nude Portrait #7 Frame ')) {
         robbies.push({
           tx: tx,
+          frame: parseInt(metadata.name.substring(37)),
           ...metadata
         });
       }
     }
   }
 
-  return robbies;
+  return _.sortBy(robbies, ['frame']);
 }
 
 async function init() {
@@ -74,7 +75,7 @@ async function main() {
     await init();
     var robies = await listRobbies()
     console.log("Retrieved " + robies.length + " AI Generated Nude Portrait #7 Frames.");
-    await fs.writeFileSync('data/ai-generated-nude-portraits-7.json', JSON.stringify(robies));
+    await fs.writeFileSync('data/ai-generated-nude-portraits-7.json', JSON.stringify(robies, null, 2));
   } catch(error) {
     console.log(error)
   }

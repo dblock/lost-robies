@@ -21,23 +21,23 @@ ts-node src/list-robbies.ts
 
 #### Classify Robbies
 
-Walk the transfer chain to classify Robbies into lost, found, claimed, etc.
+TODO: Walk the transfer chain to classify Robbies.
 
-* A plain Robbie was claimed during the Christie's conference.
-* A _lost_ Robbie was found and claimed in 2021 when all the buzz happened.
-* A known set of 3 cards have been recovered, but not claimed.
+* A plain Robbie was registered during the Christie's conference.
+* A Lost Robbie was found and registered in March 2021 when all the buzz happened.
+* A known set of 3 cards have been found, but not registered.
 
 #### Sales History
 
-Retrieve sales history of found Robbies.
+TODO: Retrieve sales history of found Robbies.
 
 #### Availability and Pricing
 
-Current availability and pricing.
+TODO: Current availability and pricing.
 
 #### Unscratched Robbies
 
-Merge with data about found, but unscratched Robbies.
+TODO: Merge with data about found, but not registered Robbies.
 
 ### Links
 
