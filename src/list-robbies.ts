@@ -3,6 +3,7 @@ import * as EtherscanApi from 'etherscan-api';
 import * as InputDataDecoder from 'ethereum-input-data-decoder';
 import axios from 'axios';
 import * as fs from 'fs';
+import * as dotenv from 'dotenv';
 
 var api = null;
 
@@ -62,10 +63,23 @@ async function listRobbies() {
   return _.sortBy(robbies, ['frame']);
 }
 
+async function loadOrListRobbies() {
+  const filename = 'data/ai-generated-nude-portraits-7.json';
+  if (fs.existsSync(filename)) {
+    var data = Buffer.from(await fs.readFileSync(filename));
+    return JSON.parse(data.toString());
+  } else {
+    var robbies = await listRobbies();
+    console.log("Retrieved " + robbies.length + " AI Generated Nude Portrait #7 Frames.");
+    await fs.writeFileSync(filename, JSON.stringify(robbies, null, 2));
+    return robbies;
+  }
+}
+
 async function init() {
+  dotenv.config();
   var etherscanApiKey = process.env.ETHERSCAN_API_KEY;
   if (! etherscanApiKey) { throw new Error('Missing ETHERSCAN_API_KEY') }
-
   api = EtherscanApi.init(etherscanApiKey);
 }
 
@@ -73,9 +87,8 @@ async function main() {
   try
   {
     await init();
-    var robies = await listRobbies()
-    console.log("Retrieved " + robies.length + " AI Generated Nude Portrait #7 Frames.");
-    await fs.writeFileSync('data/ai-generated-nude-portraits-7.json', JSON.stringify(robies, null, 2));
+    var robbies = await loadOrListRobbies();
+    console.log("Working with " + robbies.length + " AI Generated Nude Portrait #7 Frames.");
   } catch(error) {
     console.log(error)
   }

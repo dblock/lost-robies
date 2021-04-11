@@ -1,23 +1,28 @@
-### Where are the Robbies?
+## Where are the Robbies?
 
-This code retrieves information about the 300 frames of Robbie Barat's "AI Generated Nude Portrait #7" from Etherscan.
+This code retrieves information about the 300 frames of Robbie Barrat's "AI Generated Nude Portrait #7" using the [Etherscan API](https://etherscan.io/apis).
 
 ### Run
 
-Obtain an API key from [Etherscan](https://etherscan.io/myapikey).
+Obtain an API key from [Etherscan](https://etherscan.io/myapikey) and save it to `.env`.
 
 ```
-export ETHERSCAN_API_KEY=...
+ETHERSCAN_API_KEY=...
+```
+
+Install dependencies.
+
+```
 npm install
 ```
 
-#### Retrieve creation transactions and IPFS info.
-
-Retrieves creation transactions and IPFS info and writes [data/ai-generated-nude-portraits-7.json](data/ai-generated-nude-portraits-7.json).
+Retrieve creation transactions and IPFS info and cache output to [data/ai-generated-nude-portraits-7.json](data/ai-generated-nude-portraits-7.json).
 
 ```
-ts-node src/list-robbies.ts
+npm run wild
 ```
+
+### Next
 
 #### Classify Robbies
 
