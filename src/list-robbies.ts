@@ -5,6 +5,7 @@ import axios from 'axios';
 import * as fs from 'fs';
 import * as dotenv from 'dotenv';
 import * as moment from 'moment';
+import { DH_CHECK_P_NOT_SAFE_PRIME } from 'node:constants';
 
 var api = null;
 var superrare = '0x41a322b28d0ff354040e2cbc676f0320d8c8850d'; // contract
@@ -92,6 +93,33 @@ function frameUrl(frameNumber) {
   return "https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-" + frameNumber.toString() + "-" + (frameToTokenId(frameNumber)).toString();
 }
 
+async function getLogs(frame) {
+  try {
+    var topic = '0x' + frameToTokenId(frame).toString(16).padStart(64, '0');
+
+    var logs = await api.log.getLogs(
+      superrare, // address
+      null, // fromBlock
+      null, // toBlock
+      null, // topic0, sale
+      null, // topic0_1_opr
+      null, // topic1
+      null, // topic1_2_opr
+      null, // topic2
+      null, // topic2_3_opr
+      topic, // '0x0000000000000000000000000000000000000000000000000000000000000126', // topic3
+      null
+    );
+
+    return logs.result;
+  } catch (error) {
+    if (error !== 'No records found') {
+      throw(error);
+    }
+    return [];
+  }
+}
+
 async function loadOrRetrieveLogs(robbies) {
   const filename = 'data/ai-generated-nude-portraits-7-logs.json';
   if (fs.existsSync(filename)) {
@@ -100,35 +128,18 @@ async function loadOrRetrieveLogs(robbies) {
   } else {
     var all = [];
     for (const robbie of robbies) {
-      try {
-        var topic = '0x' + (robbie.frame + 190).toString(16).padStart(64, '0');
+      var logs = await getLogs(robbie.frame);
   
-        var logs = await api.log.getLogs(
-          superrare, // address
-          null, // fromBlock
-          null, // toBlock
-          '0x16dd16959a056953a63cf14bf427881e762e54f03d86b864efea8238dd3b822f', // topic0, sale
-          null, // topic0_1_opr
-          null, // topic1
-          null, // topic1_2_opr
-          null, // topic2
-          null, // topic2_3_opr
-          topic, // '0x0000000000000000000000000000000000000000000000000000000000000126', // topic3
-          null
-          );
+      all.push({
+        logs: logs,
+        ...robbie
+      });
 
-        all.push({
-          logs: logs.result,
-          ...robbie
-        });
-
-        if (logs.result.length > 0) {
-          var sale = logs.result[logs.result.length - 1];
-          console.log("frame " + robbie.frame + " last sold for " + (parseInt(sale.data) / 1000000000000000000).toFixed(2).toString() + " ETH");
-        }
-      } catch {
-  
+      if (logs.length > 0) {
+        console.log("Retrieved " + logs.length + " log entries for frame " + robbie.frame + " ...");
       }
+
+      await new Promise(r => setTimeout(r, 500));
     }  
     await fs.writeFileSync(filename, JSON.stringify(all, null, 2));
     return all;
@@ -142,13 +153,25 @@ async function main() {
     var robbies = await loadOrListRobbies();
     console.log("Working with " + robbies.length + " AI Generated Nude Portrait #7 Frames.");
 
-    var logs = await loadOrRetrieveLogs(robbies);
+    var robbiesWithLogs = await loadOrRetrieveLogs(robbies);
 
-    for(const robbie of logs) {    
-      var sale = robbie.logs[robbie.logs.length - 1];
-      var dt = moment.unix(parseInt(sale.timeStamp, 16));
-      var amount = (parseInt(sale.data) / 1000000000000000000);
-      console.log("frame " + robbie.frame + " last sold for " + amount.toFixed(2).toString() + " ETH on " + dt.toString() + " | " + frameUrl(robbie.frame));
+    for(const robbie of robbiesWithLogs) {    
+      
+      var sales = _.filter(robbie.logs, (log) => {
+        return log.topics[0] == '0x16dd16959a056953a63cf14bf427881e762e54f03d86b864efea8238dd3b822f' || // buy
+          log.topics[0] == '0xd6deddb2e105b46d4644d24aac8c58493a0f107e7973b2fe8d8fa7931a2912be' // accept bid
+      })
+  
+      for(let i = 0; i < sales.length; i++) {
+        const sale = sales[sales.length - i - 1];
+        var dt = moment.unix(parseInt(sale.timeStamp, 16));
+        var amount = (parseInt(sale.data) / 1000000000000000000);
+        if (i == 0) {
+          console.log("frame " + robbie.frame + " sold for " + amount.toFixed(3) + " ETH on " + dt.toString() + " | " + frameUrl(robbie.frame));
+        } else {
+          console.log("  sold for " + amount.toFixed(3) + " ETH on " + dt.toString());
+        }
+      }
     }
   } catch(error) {
     console.log(error)
