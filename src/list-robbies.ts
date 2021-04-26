@@ -4,8 +4,10 @@ import * as InputDataDecoder from 'ethereum-input-data-decoder';
 import axios from 'axios';
 import * as fs from 'fs';
 import * as dotenv from 'dotenv';
+import * as moment from 'moment';
 
 var api = null;
+var superrare = '0x41a322b28d0ff354040e2cbc676f0320d8c8850d'; // contract
 
 async function listAllTransactions(account) {
   var page = 1;
@@ -28,7 +30,6 @@ async function listAllTransactions(account) {
 async function listRobbies() {
   // Robbie's account
   var videodrome = '0x860c4604fe1125ea43f81e613e7afb2aa49546aa';
-  var superrare = '0x41a322b28d0ff354040e2cbc676f0320d8c8850d';
 
   var abi = JSON.parse((await api.contract.getabi(superrare)).result);
   var inputDataDecoder = new InputDataDecoder(abi);
@@ -83,12 +84,66 @@ async function init() {
   api = EtherscanApi.init(etherscanApiKey);
 }
 
+async function loadOrRetrieveLogs(robbies) {
+  const filename = 'data/ai-generated-nude-portraits-7-logs.json';
+  if (fs.existsSync(filename)) {
+    var data = Buffer.from(await fs.readFileSync(filename));
+    return JSON.parse(data.toString());
+  } else {
+    var all = [];
+    for (const robbie of robbies) {
+      try {
+        var topic = '0x' + robbie.frame.toString(16).padStart(64, '0');
+  
+        var logs = await api.log.getLogs(
+          superrare, // address
+          null, // fromBlock
+          null, // toBlock
+          '0x16dd16959a056953a63cf14bf427881e762e54f03d86b864efea8238dd3b822f', // topic0, sale
+          null, // topic0_1_opr
+          null, // topic1
+          null, // topic1_2_opr
+          null, // topic2
+          null, // topic2_3_opr
+          topic, // '0x0000000000000000000000000000000000000000000000000000000000000126', // topic3
+          null
+          );
+
+        all.push({
+          logs: logs.result,
+          ...robbie
+        });
+
+        if (logs.result.length > 0) {
+          var sale = logs.result[logs.result.length - 1];
+          console.log("frame " + robbie.frame + " last sold for " + (parseInt(sale.data) / 1000000000000000000).toFixed(2).toString() + " ETH");
+        }
+      } catch {
+  
+      }
+    }  
+    await fs.writeFileSync(filename, JSON.stringify(all, null, 2));
+    return all;
+  }
+}
+
 async function main() {
   try
   {
     await init();
     var robbies = await loadOrListRobbies();
     console.log("Working with " + robbies.length + " AI Generated Nude Portrait #7 Frames.");
+
+    var logs = await loadOrRetrieveLogs(robbies);
+
+    for(const robbie of logs) {    
+      var sale = robbie.logs[robbie.logs.length - 1];
+      var dt = moment.unix(parseInt(sale.timeStamp, 16));
+      var amount = (parseInt(sale.data) / 1000000000000000000);
+      if (amount >= 1 && dt.year() >= 2021) {
+        console.log("frame " + robbie.frame + " last sold for " + amount.toFixed(2).toString() + " ETH on " + dt.toString());
+      }
+    }    
   } catch(error) {
     console.log(error)
   }
