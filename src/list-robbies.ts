@@ -28,11 +28,24 @@ async function listAllTransactions(account) {
   return all;
 }
 
+async function getAbi() {
+  const filename = 'data/contract.json';
+  if (fs.existsSync(filename)) {
+    var data = Buffer.from(await fs.readFileSync(filename));
+    return JSON.parse(data.toString());
+  } else {
+    var abi = JSON.parse((await api.contract.getabi(superrare)).result);
+    console.log("Retrieved " + abi.length + " contract bytes.");
+    await fs.writeFileSync(filename, JSON.stringify(abi, null, 2));
+    return abi;
+  }
+}
+
 async function listRobbies() {
   // Robbie's account
   var videodrome = '0x860c4604fe1125ea43f81e613e7afb2aa49546aa';
 
-  var abi = JSON.parse((await api.contract.getabi(superrare)).result);
+  var abi = await getAbi();
   var inputDataDecoder = new InputDataDecoder(abi);
 
   var balance = (await api.account.balance(videodrome)).result;
@@ -65,7 +78,7 @@ async function listRobbies() {
   return _.sortBy(robbies, ['frame']);
 }
 
-async function loadOrListRobbies() {
+async function getRobbies() {
   const filename = 'data/ai-generated-nude-portraits-7.json';
   if (fs.existsSync(filename)) {
     var data = Buffer.from(await fs.readFileSync(filename));
@@ -93,7 +106,7 @@ function frameUrl(frameNumber) {
   return "https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-" + frameNumber.toString() + "-" + (frameToTokenId(frameNumber)).toString();
 }
 
-async function getLogs(frame) {
+async function listLogs(frame) {
   try {
     var topic = '0x' + frameToTokenId(frame).toString(16).padStart(64, '0');
 
@@ -120,7 +133,7 @@ async function getLogs(frame) {
   }
 }
 
-async function loadOrRetrieveLogs(robbies) {
+async function getLogs(robbies) {
   const filename = 'data/ai-generated-nude-portraits-7-logs.json';
   if (fs.existsSync(filename)) {
     var data = Buffer.from(await fs.readFileSync(filename));
@@ -128,7 +141,7 @@ async function loadOrRetrieveLogs(robbies) {
   } else {
     var all = [];
     for (const robbie of robbies) {
-      var logs = await getLogs(robbie.frame);
+      var logs = await listLogs(robbie.frame);
   
       all.push({
         logs: logs,
@@ -146,19 +159,49 @@ async function loadOrRetrieveLogs(robbies) {
   }
 }
 
+async function getTransactionLogs(robbiesWithLogs) {
+  const filename = 'data/ai-generated-nude-portraits-7-logs-with-transactions.json';
+  if (fs.existsSync(filename)) {
+    var data = Buffer.from(await fs.readFileSync(filename));
+    return JSON.parse(data.toString());
+  } else {
+    var abi = await getAbi();
+    var inputDataDecoder = new InputDataDecoder(abi);
+    var all = [];
+    for(const robbie of robbiesWithLogs) {
+      var logsWithTransactions = [];
+      for(const log of robbie.logs) {
+        var tx = await api.proxy.eth_getTransactionByHash(log.transactionHash);
+        logsWithTransactions.push({
+          tx: { method: inputDataDecoder.decodeData(tx.result.input).method, ...tx.result },
+          ...log
+        })
+        await new Promise(r => setTimeout(r, 500));
+      }
+      all.push({
+        ...robbie,
+        logs: logsWithTransactions
+      });
+    }  
+    await fs.writeFileSync(filename, JSON.stringify(all, null, 2));
+    return all;
+  }  
+}
+
 async function main() {
   try
   {
     await init();
-    var robbies = await loadOrListRobbies();
+    var robbies = await getRobbies();
     console.log("Working with " + robbies.length + " AI Generated Nude Portrait #7 Frames.");
 
-    var robbiesWithLogs = await loadOrRetrieveLogs(robbies);
+    var robbiesWithLogs = await getLogs(robbies);
+    var robbiesWithTransactionLogs = await getTransactionLogs(robbiesWithLogs);
 
-    for(const robbie of robbiesWithLogs) {    
-      
+    for(const robbie of robbiesWithTransactionLogs) {    
+
       var sales = _.filter(robbie.logs, (log) => {
-        return log.topics[0] == '0x16dd16959a056953a63cf14bf427881e762e54f03d86b864efea8238dd3b822f' || // buy
+        return log.topics[0] == '0x16dd16959a056953a63cf14bf427881e762e54f03d86b864efea8238dd3b822f' || // Sold
           log.topics[0] == '0xd6deddb2e105b46d4644d24aac8c58493a0f107e7973b2fe8d8fa7931a2912be' // accept bid
       })
   
