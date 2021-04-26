@@ -84,6 +84,14 @@ async function init() {
   api = EtherscanApi.init(etherscanApiKey);
 }
 
+function frameToTokenId(frameNumber) {
+  return 190 + frameNumber;
+}
+
+function frameUrl(frameNumber) {
+  return "https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-" + frameNumber.toString() + "-" + (frameToTokenId(frameNumber)).toString();
+}
+
 async function loadOrRetrieveLogs(robbies) {
   const filename = 'data/ai-generated-nude-portraits-7-logs.json';
   if (fs.existsSync(filename)) {
@@ -93,7 +101,7 @@ async function loadOrRetrieveLogs(robbies) {
     var all = [];
     for (const robbie of robbies) {
       try {
-        var topic = '0x' + robbie.frame.toString(16).padStart(64, '0');
+        var topic = '0x' + (robbie.frame + 190).toString(16).padStart(64, '0');
   
         var logs = await api.log.getLogs(
           superrare, // address
@@ -140,10 +148,8 @@ async function main() {
       var sale = robbie.logs[robbie.logs.length - 1];
       var dt = moment.unix(parseInt(sale.timeStamp, 16));
       var amount = (parseInt(sale.data) / 1000000000000000000);
-      if (amount >= 1 && dt.year() >= 2021) {
-        console.log("frame " + robbie.frame + " last sold for " + amount.toFixed(2).toString() + " ETH on " + dt.toString());
-      }
-    }    
+      console.log("frame " + robbie.frame + " last sold for " + amount.toFixed(2).toString() + " ETH on " + dt.toString() + " | " + frameUrl(robbie.frame));
+    }
   } catch(error) {
     console.log(error)
   }
