@@ -201,8 +201,7 @@ async function main() {
     for(const robbie of robbiesWithTransactionLogs) {    
 
       var sales = _.filter(robbie.logs, (log) => {
-        return log.topics[0] == '0x16dd16959a056953a63cf14bf427881e762e54f03d86b864efea8238dd3b822f' || // Sold
-          log.topics[0] == '0xd6deddb2e105b46d4644d24aac8c58493a0f107e7973b2fe8d8fa7931a2912be' // accept bid
+        return log.tx.method == 'acceptBid' || log.tx.method == 'buy'
       })
   
       for(let i = 0; i < sales.length; i++) {
