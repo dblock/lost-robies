@@ -39,7 +39,7 @@ async function main() {
         } else if (log.method == 'setSalePrice') {
           if (first) {
             var amount = toETH(log.amount);
-            console.log("frame " + frameIndex + " is listed for sale for " + amount + " ETH on " + dt.toString() + " | " + frameUrl(frameIndex));
+            console.log("frame " + frameIndex + " was listed for sale for " + amount + " ETH on " + dt.toString() + " | " + frameUrl(frameIndex));
             first = false;
           }
         }
