@@ -11,6 +11,10 @@ function frameUrl(frameNumber) {
   return "https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-" + frameNumber.toString() + "-" + (frameToTokenId(frameNumber)).toString();
 }
 
+function toETH(amount) {
+  return (parseInt(amount) / 1000000000000000000).toFixed(3);
+}
+
 async function main() {
   try
   {
@@ -28,11 +32,11 @@ async function main() {
       for(let i = 0; i < sales.length; i++) {
         const sale = sales[sales.length - i - 1];
         var dt = moment.unix(parseInt(sale.timeStamp, 16));
-        var amount = (parseInt(sale.data) / 1000000000000000000);
+        var amount = toETH(sale.data);
         if (i == 0) {
-          console.log("frame " + frameIndex + " sold for " + amount.toFixed(3) + " ETH on " + dt.toString() + " | " + frameUrl(frameIndex));
+          console.log("frame " + frameIndex + " sold for " + amount + " ETH on " + dt.toString() + " | " + frameUrl(frameIndex));
         } else {
-          console.log("  sold for " + amount.toFixed(3) + " ETH on " + dt.toString());
+          console.log("  sold for " + amount + " ETH on " + dt.toString());
         }
       }
     }
