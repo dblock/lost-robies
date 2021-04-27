@@ -5,7 +5,7 @@ import * as fs from 'fs';
 import * as dotenv from 'dotenv';
 import * as moment from 'moment';
 import axios from 'axios';
-import { create } from 'lodash';
+import * as cliProgress from 'cli-progress';
 
 var api = null;
 var superrareContractAddress = '0x41a322b28d0ff354040e2cbc676f0320d8c8850d'; // contract
@@ -45,7 +45,7 @@ function frameUrl(frameNumber) {
 
 // initial create events
 async function listCreateTransactions() {
-    const createLogs = (await api.log.getLogs(
+  const createLogs = (await api.log.getLogs(
     superrareContractAddress, // address
     '5977236', // fromBlock, from https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-1-191
     '5977931', // toBlock, from https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-300-490
@@ -54,7 +54,10 @@ async function listCreateTransactions() {
     '0x0000000000000000000000000000000000000000000000000000000000000000' // creation
   )).result;        
   var inputDataDecoder = new InputDataDecoder(await getAbi());
+  const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
+  bar.start(createLogs.length, 0);
   for(let frameIndex = 1; frameIndex <= createLogs.length; frameIndex++) {
+    bar.update(frameIndex);
     const filename = 'data/ai-generated-nude-portraits-7/' + frameIndex + '.json';
     if (! fs.existsSync(filename)) {
     var log = createLogs[frameIndex - 1];
@@ -74,6 +77,7 @@ async function listCreateTransactions() {
       await new Promise(r => setTimeout(r, 100));
     }
   }
+  bar.stop();
 }
 
 // initial transfer events
@@ -87,7 +91,11 @@ async function listTransferTransactions() {
     '0x000000000000000000000000860c4604fe1125ea43f81e613e7afb2aa49546aa' // videodrome's address
   )).result;
   var inputDataDecoder = new InputDataDecoder(await getAbi());  
+  const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
+  bar.start(transferLogs.length, 0);
+  var i = 0;
   for(var log of transferLogs) {
+    bar.update(i += 1, 0);
     const tokenId = parseInt(log.data, 16);
     const frameIndex = tokenIdToFrame(tokenId);
     const filename = 'data/ai-generated-nude-portraits-7/' + frameIndex + '.json';
@@ -105,6 +113,7 @@ async function listTransferTransactions() {
       await new Promise(r => setTimeout(r, 100));
     }
   }
+  bar.stop();
 }
 
 // remaining transactions
@@ -158,9 +167,13 @@ async function main() {
     await listCreateTransactions();
     await listTransferTransactions();
 
+    const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
+    bar.start(300, 0);
     for(var frameIndex = 1; frameIndex <= 300; frameIndex++) {
+      bar.update(frameIndex - 1);
       await listRemainingTransactions(frameIndex);
     }
+    bar.stop();
 
     for(var frameIndex = 1; frameIndex <= 300; frameIndex++) {
       const filename = 'data/ai-generated-nude-portraits-7/' + frameIndex + '.json';

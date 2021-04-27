@@ -4,6 +4,7 @@
   "dependencies": {
     "@types/lodash": "^4.14.168",
     "axios": "^0.21.1",
+    "cli-progress": "^3.9.0",
     "dotenv": "^8.2.0",
     "ethereum-input-data-decoder": "^0.3.2",
     "etherscan-api": "^10.0.5",
