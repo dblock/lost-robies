@@ -3,7 +3,6 @@ import * as EtherscanApi from 'etherscan-api';
 import * as InputDataDecoder from 'ethereum-input-data-decoder';
 import * as fs from 'fs';
 import * as dotenv from 'dotenv';
-import * as moment from 'moment';
 import axios from 'axios';
 import * as cliProgress from 'cli-progress';
 
@@ -178,34 +177,9 @@ async function main() {
   try
   {
     await init();
-
     await listCreateTransactions();
     await listTransferTransactions();
     await listActiveTransactions();
-
-    for(var frameIndex = 1; frameIndex <= 300; frameIndex++) {
-      const filename = 'data/ai-generated-nude-portraits-7/' + frameIndex + '.json';
-      var data = { logs: [] };
-      if (fs.existsSync(filename)) {
-        data = JSON.parse(Buffer.from(await fs.readFileSync(filename)).toString());
-      }
-
-      var sales = _.filter(data.logs, (log) => {
-        return log.method == 'acceptBid' || log.method == 'buy'
-      })
-
-      for(let i = 0; i < sales.length; i++) {
-        const sale = sales[sales.length - i - 1];
-        var dt = moment.unix(parseInt(sale.timeStamp, 16));
-        var amount = (parseInt(sale.data) / 1000000000000000000);
-        if (i == 0) {
-          console.log("frame " + frameIndex + " sold for " + amount.toFixed(3) + " ETH on " + dt.toString() + " | " + frameUrl(frameIndex));
-        } else {
-          console.log("  sold for " + amount.toFixed(3) + " ETH on " + dt.toString());
-        }
-      }
-    }
-
   } catch(error) {
     console.log(error)
   }

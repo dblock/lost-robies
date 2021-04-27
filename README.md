@@ -1,14 +1,13 @@
 ## Where are the Robbies?
 
-This code retrieves information about the 300 frames of Robbie Barrat's "AI Generated Nude Portrait #7" using the [Etherscan API](https://etherscan.io/apis).
+This code retrieves information about the 300 frames of Robbie Barrat's "AI Generated Nude Portrait #7" using the [Etherscan API](https://etherscan.io/apis). Some of these are known as "Lost Robbies".
+
+* [The Lost Robbies](https://editorial.superrare.co/2020/09/05/the-lost-robbies/)
+* [Rare “Lost Robbie” AI Nude NFTs Worth Millions Surface](https://digitalartcollector.com/rare-lost-robbie-ai-nude-nfts-worth-millions-surface/)
 
 ### Run
 
-Obtain an API key from [Etherscan](https://etherscan.io/myapikey) and save it to `.env`.
-
-```
-ETHERSCAN_API_KEY=...
-```
+#### Prerequisites
 
 Install dependencies.
 
@@ -16,12 +15,32 @@ Install dependencies.
 npm install
 ```
 
-Retrieve creation transactions, IPFS info and sales, and cache output to [data/ai-generated-nude-portraits-7.json](data/ai-generated-nude-portraits-7.json) and [data/ai-generated-nude-portraits-7-logs.json](data/ai-generated-nude-portraits-7-logs.json).
+#### Update Data
+
+To get fresh data, obtain an API key from [Etherscan](https://etherscan.io/myapikey) and save it to `.env`.
 
 ```
-npm run wild
+ETHERSCAN_API_KEY=...
+```
 
-Working with 300 AI Generated Nude Portrait #7 Frames.
+Retrieve creation transactions, IPFS info and sales, and cache output to [data](data).
+
+```
+npm run update
+
+ ████████████████████████████████████████ 100% | ETA: 0s | 300/300
+ ████████████████████████████████████████ 100% | ETA: 0s | 600/600
+ █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 3% | ETA: 125s | 10/300^C
+
+```
+
+#### Sales Report
+
+Produce a sales report.
+
+```
+npm run sales
+
 frame 13 sold for 100.888 ETH on Sat Apr 10 2021 00:40:21 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-13-203
 frame 24 sold for 0.100 ETH on Fri Jul 20 2018 10:32:22 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-24-214
 frame 44 sold for 110.000 ETH on Mon Apr 19 2021 14:17:32 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-44-234
@@ -43,29 +62,6 @@ frame 206 sold for 60.000 ETH on Wed Apr 07 2021 15:40:30 GMT-0400 | https://sup
 frame 269 sold for 125.000 ETH on Mon Apr 05 2021 16:36:12 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-269-459
 frame 275 sold for 50.000 ETH on Wed Apr 07 2021 19:29:54 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-275-465
 ```
-
-### Next
-
-#### Classify Robbies
-
-Some help from https://twitter.com/dblockdotorg/status/1381285307925008386
-
-* A plain Robbie was registered during the Christie's conference.
-* A Lost Robbie was found and registered in March 2021 when all the buzz happened.
-* A known set of 4 cards have been found, but not registered.
-
-#### Availability and Pricing
-
-TODO: Current availability and pricing.
-
-#### Unscratched Robbies
-
-TODO: Merge with data about found, but not registered Robbies.
-
-### Links
-
-* [The Lost Robbies](https://editorial.superrare.co/2020/09/05/the-lost-robbies/)
-* [Rare “Lost Robbie” AI Nude NFTs Worth Millions Surface](https://digitalartcollector.com/rare-lost-robbie-ai-nude-nfts-worth-millions-surface/)
 
 ### License
 
