@@ -59,12 +59,13 @@ async function listCreateTransactions() {
     bar.update(frameIndex);
     const filename = 'data/ai-generated-nude-portraits-7/' + frameIndex + '.json';
     if (! fs.existsSync(filename)) {
-    var log = createLogs[frameIndex - 1];
+      var log = createLogs[frameIndex - 1];
       var tx = (await api.proxy.eth_getTransactionByHash(log.transactionHash)).result;
       const decodedInputData = inputDataDecoder.decodeData(tx.input);
       const method = decodedInputData.method;
       const data = {
         frame: frameIndex,
+        url: frameUrl(frameIndex),
         metadata: ((await axios.get(decodedInputData.inputs[0])).data),
         logs: [{
           ...log,
