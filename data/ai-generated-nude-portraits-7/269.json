@@ -127,6 +127,41 @@
     {
       "address": "0x41a322b28d0ff354040e2cbc676f0320d8c8850d",
       "topics": [
+        "0xe23ea816dce6d7f5c0b85cbd597e7c3b97b2453791152c0b94e5e5c5f314d2f0",
+        "0x00000000000000000000000000000000000000000000000000000000000001cb",
+        "0x00000000000000000000000000000000000000000000000e951ffac6e4140000"
+      ],
+      "data": "0x",
+      "blockNumber": "0xb9d391",
+      "timeStamp": "0x606abd01",
+      "gasPrice": "0x138eca4800",
+      "gasUsed": "0xb0eb",
+      "logIndex": "0x77",
+      "transactionHash": "0xe47146afd5a1d2417c868d273f32d839a6ca5ef8f0b581c10fadfc4d09c91c46",
+      "transactionIndex": "0x24",
+      "amount": 269000000000000000000,
+      "tx": {
+        "blockHash": "0xf2cbe2179cc03f254364cead417bc044357e133de7939181f800fae8ebabea51",
+        "blockNumber": "0xb9d391",
+        "from": "0x0a3434a1d0e949ff2681b5a4733c29f0fac086f5",
+        "gas": "0x10960",
+        "gasPrice": "0x138eca4800",
+        "hash": "0xe47146afd5a1d2417c868d273f32d839a6ca5ef8f0b581c10fadfc4d09c91c46",
+        "input": "0x053992c500000000000000000000000000000000000000000000000000000000000001cb00000000000000000000000000000000000000000000000e951ffac6e4140000",
+        "nonce": "0x0",
+        "to": "0x41a322b28d0ff354040e2cbc676f0320d8c8850d",
+        "transactionIndex": "0x24",
+        "value": "0x0",
+        "type": "0x0",
+        "v": "0x26",
+        "r": "0xa4fb891dbe56899c313d7d11e0471a4f9e002366642876666887222f0d5ae19b",
+        "s": "0x18be0766a9031e903510ed777c4f67eb516b0cccd26e2b3e88cd0652ea415e1b"
+      },
+      "method": "setSalePrice"
+    },
+    {
+      "address": "0x41a322b28d0ff354040e2cbc676f0320d8c8850d",
+      "topics": [
         "0x19421268847f42dd61705778018ddfc43bcdce8517e7a630acb12f122c709481",
         "0x0000000000000000000000002debdf4427ccbcfdbc7f29d63964499a0ec184f6",
         "0x000000000000000000000000000000000000000000000006c6b935b8bbd40000",
@@ -140,6 +175,7 @@
       "logIndex": "0x43",
       "transactionHash": "0x4c6f64e062e740caaf3bfadb2549a7fcbbedae1a54b1fa88e03ea257e323ec6f",
       "transactionIndex": "0x2d",
+      "amount": 125000000000000000000,
       "tx": {
         "blockHash": "0x6d875d2214736e169cadf76881e69ba863d36050a449e190e8fc271362cfbcfc",
         "blockNumber": "0xb9db0e",

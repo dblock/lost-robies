@@ -140,6 +140,7 @@
       "logIndex": "0x54",
       "transactionHash": "0xaae90fa38815831dbf741aa4a83cb3ac9aff8248c40b84992a2d38661fda9a94",
       "transactionIndex": "0x2e",
+      "amount": 80000000000000000,
       "tx": {
         "blockHash": "0x66412a98a4ad5e9a377e73ccb8a72588865d10aee0dde6f3b6db2eaf8f5edd8f",
         "blockNumber": "0x5b8e28",

@@ -140,6 +140,7 @@
       "logIndex": "0x61",
       "transactionHash": "0x6dc70c951cc2bd2b0ac7307485e4e40472b935fe377f9ef1b4d2fdeed1bd8d4c",
       "transactionIndex": "0x78",
+      "amount": 1500000000000000000,
       "tx": {
         "blockHash": "0x5b938e1433a4df8d2b6ae223e4c405434e0a03ea256962fc60b1b7b0f204d876",
         "blockNumber": "0x8b6e43",
@@ -175,6 +176,7 @@
       "logIndex": "0xcd",
       "transactionHash": "0xb82ace8560a90401f0c8fde14200de9a2c9adbb139d4289cf822636f4fc76dde",
       "transactionIndex": "0x74",
+      "amount": 1700000000000000000,
       "tx": {
         "blockHash": "0x2397d1e915ca25b6ca5fad1cacd0937199336387e630c223c3ae7ff3b6eda211",
         "blockNumber": "0x8b74af",
@@ -210,6 +212,7 @@
       "logIndex": "0x8",
       "transactionHash": "0x5111f5189a6e6fa5e889eb939b9cb04e7e18b827120a71ef34b4e0ac751b11b2",
       "transactionIndex": "0x7",
+      "amount": 1800000000000000000,
       "tx": {
         "blockHash": "0x02f79d7b225b33d38535386b0f6885034a9ff9cd3fe5f8172c1e92e490b1bcfe",
         "blockNumber": "0x8b7632",
@@ -280,6 +283,7 @@
       "logIndex": "0x65",
       "transactionHash": "0x6cb7c2db8c04727bc164dab22c5dc2b1f8c5aa3c092952d336528235eaa777c8",
       "transactionIndex": "0x79",
+      "amount": 2000000000000000000,
       "tx": {
         "blockHash": "0x52b23905260ef4a7e9b80cbf2d97b245ec629cd422a6f6d37de7d223970c7902",
         "blockNumber": "0x9c3120",
@@ -350,6 +354,7 @@
       "logIndex": "0xb0",
       "transactionHash": "0xede9c6b6db966dd55a134101c7a2702bf797b80ffec5ce258b21d6120539d578",
       "transactionIndex": "0x4a",
+      "amount": 2800000000000000000,
       "tx": {
         "blockHash": "0xc4038bbfb2870763b21f1ad9b0e31888423ec20ae600c6d84284f8f0083147f3",
         "blockNumber": "0xb97cb5",
@@ -420,6 +425,7 @@
       "logIndex": "0xad",
       "transactionHash": "0xc84a0369b4a770af5102c8f288d6e7d971f440783a36a6be9ca33d94f29bbc11",
       "transactionIndex": "0x55",
+      "amount": 47000000000000000000,
       "tx": {
         "blockHash": "0x64781c4ad24922987629995b5469618b6a55f67cd8827d2a71e5130aec14e24b",
         "blockNumber": "0xb9c22e",

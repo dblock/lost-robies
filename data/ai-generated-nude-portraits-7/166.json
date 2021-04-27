@@ -127,6 +127,41 @@
     {
       "address": "0x41a322b28d0ff354040e2cbc676f0320d8c8850d",
       "topics": [
+        "0xe23ea816dce6d7f5c0b85cbd597e7c3b97b2453791152c0b94e5e5c5f314d2f0",
+        "0x0000000000000000000000000000000000000000000000000000000000000164",
+        "0x000000000000000000000000000000000000000000000004563918244f400000"
+      ],
+      "data": "0x",
+      "blockNumber": "0xb990cb",
+      "timeStamp": "0x60674aab",
+      "gasPrice": "0x3339059db3",
+      "gasUsed": "0xb0eb",
+      "logIndex": "0xa0",
+      "transactionHash": "0x9d04e06fdc95cb18581454d99d73987edfaf42ac8d95c666a1d58569ee8c9806",
+      "transactionIndex": "0x88",
+      "amount": 80000000000000000000,
+      "tx": {
+        "blockHash": "0x4eb6d8b675546d10dfe9f4a5f68ccb2dae9bcc0e99967a9f9f2ac15d13042c5b",
+        "blockNumber": "0xb990cb",
+        "from": "0xaf7984f5c5d130f2f095940b1543088e55cb77b0",
+        "gas": "0x10960",
+        "gasPrice": "0x3339059db3",
+        "hash": "0x9d04e06fdc95cb18581454d99d73987edfaf42ac8d95c666a1d58569ee8c9806",
+        "input": "0x053992c50000000000000000000000000000000000000000000000000000000000000164000000000000000000000000000000000000000000000004563918244f400000",
+        "nonce": "0x0",
+        "to": "0x41a322b28d0ff354040e2cbc676f0320d8c8850d",
+        "transactionIndex": "0x88",
+        "value": "0x0",
+        "type": "0x0",
+        "v": "0x25",
+        "r": "0x5625c30288592e700d23457eb2b5dac831297ad229bbb59c8237cf024d5ec784",
+        "s": "0x6ad37519082e2c79987c3fb44b49fe38c2733b9b5d8eed766fa5e9948b1139eb"
+      },
+      "method": "setSalePrice"
+    },
+    {
+      "address": "0x41a322b28d0ff354040e2cbc676f0320d8c8850d",
+      "topics": [
         "0x19421268847f42dd61705778018ddfc43bcdce8517e7a630acb12f122c709481",
         "0x0000000000000000000000006e7cacc6f2b49dfb980663bf2bb014046ac45320",
         "0x000000000000000000000000000000000000000000000001158e460913d00000",
@@ -140,6 +175,7 @@
       "logIndex": "0x8c",
       "transactionHash": "0x730a8117488c19c230d39a9b141e39a975bb76a052d130f909fe97ab523ab850",
       "transactionIndex": "0x55",
+      "amount": 20000000000000000000,
       "tx": {
         "blockHash": "0xf007fe2e61af2e47e8d10968ef2f5c1a2a7e160004687783d8d28877863c277f",
         "blockNumber": "0xb990d9",
@@ -175,6 +211,7 @@
       "logIndex": "0xfd",
       "transactionHash": "0x50d81253048768561aa1663153e22a8c4455c15bc398011a7849b6b97e7759ee",
       "transactionIndex": "0x13b",
+      "amount": 50000000000000000000,
       "tx": {
         "blockHash": "0x3ed7f5975d20afbbe123624f339560470dfaed2a690bc0684837e84c23b17635",
         "blockNumber": "0xb9a0ce",
@@ -228,6 +265,41 @@
         "s": "0x77b4af7520ef20f4248c47acae5d1db1e7efa3b17b63b514fedad151533dcdd4"
       },
       "method": "buy"
+    },
+    {
+      "address": "0x41a322b28d0ff354040e2cbc676f0320d8c8850d",
+      "topics": [
+        "0xe23ea816dce6d7f5c0b85cbd597e7c3b97b2453791152c0b94e5e5c5f314d2f0",
+        "0x0000000000000000000000000000000000000000000000000000000000000164",
+        "0x000000000000000000000000000000000000000000000077432217e683600000"
+      ],
+      "data": "0x",
+      "blockNumber": "0xbb4a60",
+      "timeStamp": "0x607e3b72",
+      "gasPrice": "0x2c3ce1ec00",
+      "gasUsed": "0xc347",
+      "logIndex": "0x4d",
+      "transactionHash": "0x9bd6e823f386713aaa394a43a237e27d22f826e4abf1c0edfbb5759b1d87e8fd",
+      "transactionIndex": "0x39",
+      "amount": 2.2e+21,
+      "tx": {
+        "blockHash": "0x1f0b037f6eb03fd917a76e14cbcea701c1698128bdaeb55c227500fc879f1368",
+        "blockNumber": "0xbb4a60",
+        "from": "0xabf107de3e01c7c257e64e0a18d60a733aad395d",
+        "gas": "0x124ea",
+        "gasPrice": "0x2c3ce1ec00",
+        "hash": "0x9bd6e823f386713aaa394a43a237e27d22f826e4abf1c0edfbb5759b1d87e8fd",
+        "input": "0x053992c50000000000000000000000000000000000000000000000000000000000000164000000000000000000000000000000000000000000000077432217e683600000",
+        "nonce": "0x2d5",
+        "to": "0x41a322b28d0ff354040e2cbc676f0320d8c8850d",
+        "transactionIndex": "0x39",
+        "value": "0x0",
+        "type": "0x0",
+        "v": "0x25",
+        "r": "0x541a33b299080003f177ee5464d76cd92cb67749e88330b19c3c0f185a1bb9e8",
+        "s": "0xac64b55be014faa4c0983fbff0eab9e105ba4cd5ad94b160e8ece47359464b4"
+      },
+      "method": "setSalePrice"
     }
   ]
 }

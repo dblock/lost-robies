@@ -124,8 +124,7 @@ async function listActiveTransactions() {
   const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
   bar.start(300, 0);
   for(var frameIndex = 1; frameIndex <= 300; frameIndex++) {
-    bar.update(frameIndex - 1);
-    try {
+    bar.update(frameIndex);
       await new Promise(r => setTimeout(r, 200));
       const filename = 'data/ai-generated-nude-portraits-7/' + frameIndex + '.json';
       var data = { logs: [] };
@@ -136,40 +135,75 @@ async function listActiveTransactions() {
       if (data.logs.length > 0) {
         latestBlock = parseInt(data.logs[data.logs.length - 1].blockNumber, 16) + 1;
       }
+
       var topic = '0x' + frameToTokenId(frameIndex).toString(16).padStart(64, '0');
-      var logs = (await api.log.getLogs(
-        superrareContractAddress, // address
-          latestBlock, // fromBlock
-          null, // toBlock
-          null, // topic0
-          null, // topic0_1_opr
-          null, // topic1
-          null, // topic1_2_opr
-          null, // topic2
-          null, // topic2_3_opr
-          topic, // '0x0000000000000000000000000000000000000000000000000000000000000126', // topic3
-          null
-      )).result;
+
+      var logs = [];
+
+      try {
+        logs = logs.concat((await api.log.getLogs(
+          superrareContractAddress, // address
+            latestBlock, // fromBlock
+            null, // toBlock
+            null, // topic0
+            null, // topic0_1_opr
+            null, // topic1
+            null, // topic1_2_opr
+            null, // topic2
+            null, // topic2_3_opr
+            topic, // topic3, tokenId '0x0000000000000000000000000000000000000000000000000000000000000126'
+            null
+        )).result);
+      } catch (error) {
+        if (error !== 'No records found') {
+          throw(error);
+        }
+      }
+  
+      try {
+        logs = logs.concat((await api.log.getLogs(
+          superrareContractAddress, // address
+            latestBlock, // fromBlock
+            null, // toBlock
+            null, // topic0
+            null, // topic0_1_opr
+            topic // topic1, tokenId
+        )).result);
+      } catch (error) {
+        if (error !== 'No records found') {
+          throw(error);
+        }
+      }
+
       var inputDataDecoder = new InputDataDecoder(await getAbi());  
+      var updated = false;
       for(var log of logs) {
         if (! _.find(data.logs, (v) => { return v.transactionHash === log.transactionHash })) {
           var tx = (await api.proxy.eth_getTransactionByHash(log.transactionHash)).result;
           const decodedInputData = inputDataDecoder.decodeData(tx.input);
           const method = decodedInputData.method;
+
+          if (method == 'setSalePrice' || method == 'bid') {
+            log = { 
+              ...log, 
+              amount: parseInt(log.topics[2], 16)
+            }
+          }
+
           data.logs.push({
             ...log,
             tx: tx,
             method: method
           });
-          await fs.writeFileSync(filename, JSON.stringify(data, null, 2));
+          updated = true;
           await new Promise(r => setTimeout(r, 200));
         }
       }
-    } catch (error) {
-      if (error !== 'No records found') {
-        throw(error);
+
+      if (updated) {
+        data.logs = _.sortBy(data.logs, (log) => { return parseInt(log.timeStamp, 16) })
+        await fs.writeFileSync(filename, JSON.stringify(data, null, 2));
       }
-    }
   }
   bar.stop();
 }

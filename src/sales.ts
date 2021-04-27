@@ -12,12 +12,12 @@ function frameUrl(frameNumber) {
 }
 
 function toETH(amount) {
-  return (parseInt(amount) / 1000000000000000000).toFixed(3);
+  return (amount / 1000000000000000000).toFixed(3);
 }
 
 async function main() {
-  try
-  {
+  try {
+    
     for(var frameIndex = 1; frameIndex <= 300; frameIndex++) {
       const filename = 'data/ai-generated-nude-portraits-7/' + frameIndex + '.json';
       var data = { logs: [] };
@@ -25,18 +25,23 @@ async function main() {
         data = JSON.parse(Buffer.from(await fs.readFileSync(filename)).toString());
       }
 
-      var sales = _.filter(data.logs, (log) => {
-        return log.method == 'acceptBid' || log.method == 'buy'
-      })
-
-      for(let i = 0; i < sales.length; i++) {
-        const sale = sales[sales.length - i - 1];
-        var dt = moment.unix(parseInt(sale.timeStamp, 16));
-        var amount = toETH(sale.data);
-        if (i == 0) {
-          console.log("frame " + frameIndex + " sold for " + amount + " ETH on " + dt.toString() + " | " + frameUrl(frameIndex));
-        } else {
-          console.log("  sold for " + amount + " ETH on " + dt.toString());
+      var first = true;
+      for(const log of _.reverse(data.logs)) {
+        var dt = moment.unix(parseInt(log.timeStamp, 16));
+        if (log.method == 'acceptBid' || log.method == 'buy') {
+          var amount = toETH(parseInt(log.data));
+          if (first) {
+            console.log("frame " + frameIndex + " sold for " + amount + " ETH on " + dt.toString() + " | " + frameUrl(frameIndex));
+            first = false;
+          } else {
+            console.log("  sold for " + amount + " ETH on " + dt.toString());
+          }
+        } else if (log.method == 'setSalePrice') {
+          if (first) {
+            var amount = toETH(log.amount);
+            console.log("frame " + frameIndex + " is listed for sale for " + amount + " ETH on " + dt.toString() + " | " + frameUrl(frameIndex));
+            first = false;
+          }
         }
       }
     }

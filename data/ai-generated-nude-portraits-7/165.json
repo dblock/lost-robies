@@ -140,6 +140,7 @@
       "logIndex": "0xe1",
       "transactionHash": "0xd3f0c93161fd0600ee64b971c315c775ae9d2f3d1f19fa651bbe13041eb3ac08",
       "transactionIndex": "0x15",
+      "amount": 2500000000000000000,
       "tx": {
         "blockHash": "0x5b56286b46e588ac2b9db049c8662802b376fcf7fd74ea7ce4207e5f6b36acd8",
         "blockNumber": "0x8c474d",
@@ -193,6 +194,41 @@
         "s": "0x4724dbf0d256b41dcb9c9a0ec6e1ed1e55687791d253dc5f35d509e822500380"
       },
       "method": "cancelBid"
+    },
+    {
+      "address": "0x41a322b28d0ff354040e2cbc676f0320d8c8850d",
+      "topics": [
+        "0xe23ea816dce6d7f5c0b85cbd597e7c3b97b2453791152c0b94e5e5c5f314d2f0",
+        "0x0000000000000000000000000000000000000000000000000000000000000163",
+        "0x00000000000000000000000000000000000000000000006c6b935b8bbd400000"
+      ],
+      "data": "0x",
+      "blockNumber": "0xb9e095",
+      "timeStamp": "0x606b6a71",
+      "gasPrice": "0x2416b84e00",
+      "gasUsed": "0xb0eb",
+      "logIndex": "0xc6",
+      "transactionHash": "0xd39071f5350545a8b49c4d333dc1845d1e4076ec5e23235a27bbb610f6259dd0",
+      "transactionIndex": "0x59",
+      "amount": 2e+21,
+      "tx": {
+        "blockHash": "0x99e4bc9cf4e212afbac6f555b48d4051c4353ed6473beb89fb3294690d77f056",
+        "blockNumber": "0xb9e095",
+        "from": "0xec8c1050b45789f9ee4d09dcc7d64aaf9e233338",
+        "gas": "0x10960",
+        "gasPrice": "0x2416b84e00",
+        "hash": "0xd39071f5350545a8b49c4d333dc1845d1e4076ec5e23235a27bbb610f6259dd0",
+        "input": "0x053992c5000000000000000000000000000000000000000000000000000000000000016300000000000000000000000000000000000000000000006c6b935b8bbd400000",
+        "nonce": "0xea",
+        "to": "0x41a322b28d0ff354040e2cbc676f0320d8c8850d",
+        "transactionIndex": "0x59",
+        "value": "0x0",
+        "type": "0x0",
+        "v": "0x25",
+        "r": "0xfc1e6bc16f46508f885bf9eff9fc6d5f72a53cdf52c8ece231481b973fa8e79",
+        "s": "0x733d67b47d49b4d71fce7689e8815e39f9d32becd5b169c2171164f18c457b15"
+      },
+      "method": "setSalePrice"
     }
   ]
 }

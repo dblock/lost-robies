@@ -140,6 +140,7 @@
       "logIndex": "0xfe",
       "transactionHash": "0xfc05013676e3e15c9f735d7dcc35d43f70951d5dc1df129f48d7356b85c4704d",
       "transactionIndex": "0xb2",
+      "amount": 10000000000000000000,
       "tx": {
         "blockHash": "0x20ea53193b5cb302644c2eb14b0f63d321e1797560a5d60127fb4ce5965eb312",
         "blockNumber": "0xb9a092",
@@ -175,6 +176,7 @@
       "logIndex": "0xcb",
       "transactionHash": "0x09834d56212abeb344d70b54107e7a61071a4a2d90a9f362726d11b70641540f",
       "transactionIndex": "0x4f",
+      "amount": 50000000000000000000,
       "tx": {
         "blockHash": "0x852e4371b174ef76a501b6abb76b9e60a9732c8012a16f0707e9cbf9b18bed83",
         "blockNumber": "0xb9b2d5",
