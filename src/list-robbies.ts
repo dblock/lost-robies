@@ -99,7 +99,10 @@ async function listTransferTransactions() {
     const tokenId = parseInt(log.data, 16);
     const frameIndex = tokenIdToFrame(tokenId);
     const filename = 'data/ai-generated-nude-portraits-7/' + frameIndex + '.json';
-    var data = JSON.parse(Buffer.from(await fs.readFileSync(filename)).toString());
+    var data = { logs: [] };
+    if (fs.existsSync(filename)) {
+      data = JSON.parse(Buffer.from(await fs.readFileSync(filename)).toString());
+    }
     if (! _.find(data.logs, (v) => { return v.transactionHash === log.transactionHash && v.topics[0] === log.topics[0] })) {
       var tx = (await api.proxy.eth_getTransactionByHash(log.transactionHash)).result;
       const decodedInputData = inputDataDecoder.decodeData(tx.input);
@@ -117,46 +120,58 @@ async function listTransferTransactions() {
 }
 
 // remaining transactions
-async function listRemainingTransactions(frameIndex) {
-  try {
-    await new Promise(r => setTimeout(r, 100));
-    var topic = '0x' + frameToTokenId(frameIndex).toString(16).padStart(64, '0');
-    var logs = (await api.log.getLogs(
-      superrareContractAddress, // address
-        null, // fromBlock
-        null, // toBlock
-        null, // topic0
-        null, // topic0_1_opr
-        null, // topic1
-        null, // topic1_2_opr
-        null, // topic2
-        null, // topic2_3_opr
-        topic, // '0x0000000000000000000000000000000000000000000000000000000000000126', // topic3
-        null
-    )).result;
-    var inputDataDecoder = new InputDataDecoder(await getAbi());  
-    for(var log of logs) {
+async function listActiveTransactions() {
+  const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
+  bar.start(300, 0);
+  for(var frameIndex = 1; frameIndex <= 300; frameIndex++) {
+    bar.update(frameIndex - 1);
+    try {
+      await new Promise(r => setTimeout(r, 200));
       const filename = 'data/ai-generated-nude-portraits-7/' + frameIndex + '.json';
-      var data = JSON.parse(Buffer.from(await fs.readFileSync(filename)).toString());
-      if (! _.find(data.logs, (v) => { return v.transactionHash === log.transactionHash })) {
-        var tx = (await api.proxy.eth_getTransactionByHash(log.transactionHash)).result;
-        const decodedInputData = inputDataDecoder.decodeData(tx.input);
-        const method = decodedInputData.method;
-        data.logs.push({
-          ...log,
-          tx: tx,
-          method: method
-        });
-        await fs.writeFileSync(filename, JSON.stringify(data, null, 2));
-        await new Promise(r => setTimeout(r, 100));
+      var data = { logs: [] };
+      if (fs.existsSync(filename)) {
+        data = JSON.parse(Buffer.from(await fs.readFileSync(filename)).toString());
+      }
+      var latestBlock = null;
+      if (data.logs.length > 0) {
+        latestBlock = parseInt(data.logs[data.logs.length - 1].blockNumber, 16) + 1;
+      }
+      var topic = '0x' + frameToTokenId(frameIndex).toString(16).padStart(64, '0');
+      var logs = (await api.log.getLogs(
+        superrareContractAddress, // address
+          latestBlock, // fromBlock
+          null, // toBlock
+          null, // topic0
+          null, // topic0_1_opr
+          null, // topic1
+          null, // topic1_2_opr
+          null, // topic2
+          null, // topic2_3_opr
+          topic, // '0x0000000000000000000000000000000000000000000000000000000000000126', // topic3
+          null
+      )).result;
+      var inputDataDecoder = new InputDataDecoder(await getAbi());  
+      for(var log of logs) {
+        if (! _.find(data.logs, (v) => { return v.transactionHash === log.transactionHash })) {
+          var tx = (await api.proxy.eth_getTransactionByHash(log.transactionHash)).result;
+          const decodedInputData = inputDataDecoder.decodeData(tx.input);
+          const method = decodedInputData.method;
+          data.logs.push({
+            ...log,
+            tx: tx,
+            method: method
+          });
+          await fs.writeFileSync(filename, JSON.stringify(data, null, 2));
+          await new Promise(r => setTimeout(r, 200));
+        }
+      }
+    } catch (error) {
+      if (error !== 'No records found') {
+        throw(error);
       }
     }
-  } catch (error) {
-    if (error !== 'No records found') {
-      throw(error);
-    }
-    return [];
   }
+  bar.stop();
 }
 
 async function main() {
@@ -166,23 +181,19 @@ async function main() {
 
     await listCreateTransactions();
     await listTransferTransactions();
-
-    const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
-    bar.start(300, 0);
-    for(var frameIndex = 1; frameIndex <= 300; frameIndex++) {
-      bar.update(frameIndex - 1);
-      await listRemainingTransactions(frameIndex);
-    }
-    bar.stop();
+    await listActiveTransactions();
 
     for(var frameIndex = 1; frameIndex <= 300; frameIndex++) {
       const filename = 'data/ai-generated-nude-portraits-7/' + frameIndex + '.json';
-      var data = JSON.parse(Buffer.from(await fs.readFileSync(filename)).toString());
+      var data = { logs: [] };
+      if (fs.existsSync(filename)) {
+        data = JSON.parse(Buffer.from(await fs.readFileSync(filename)).toString());
+      }
 
       var sales = _.filter(data.logs, (log) => {
         return log.method == 'acceptBid' || log.method == 'buy'
       })
-  
+
       for(let i = 0; i < sales.length; i++) {
         const sale = sales[sales.length - i - 1];
         var dt = moment.unix(parseInt(sale.timeStamp, 16));
