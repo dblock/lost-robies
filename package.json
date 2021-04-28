@@ -15,6 +15,7 @@
     "@types/node": "^14.14.37"
   },
   "scripts": {
+    "robbie": "ts-node src/robbie.ts",
     "update": "ts-node src/update.ts",
     "sales": "ts-node src/sales.ts"
   }
