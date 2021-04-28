@@ -1,9 +1,11 @@
 ## Where are the Robbies?
 
-This code retrieves information about the 300 frames of Robbie Barrat's "AI Generated Nude Portrait #7" using the [Etherscan API](https://etherscan.io/apis). Some of these are known as "Lost Robbies".
+This code retrieves information about the 300 frames of Robbie Barrat's "AI Generated Nude Portrait #7" using the [Etherscan API](https://etherscan.io/apis). Some of these are known as "Lost Robbies". 
 
 * [The Lost Robbies](https://editorial.superrare.co/2020/09/05/the-lost-robbies/)
 * [Rare “Lost Robbie” AI Nude NFTs Worth Millions Surface](https://digitalartcollector.com/rare-lost-robbie-ai-nude-nfts-worth-millions-surface/)
+
+A walk-through of this code is available in [this accompanying blog post](https://code.dblock.org/2021/04/27/walking-etherium-transaction-logs-to-find-lost-robbies-using-etherscan-api.html).
 
 ### Run
 
