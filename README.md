@@ -7,6 +7,8 @@ This code retrieves information about the 300 frames of Robbie Barrat's "AI Gene
 
 A walk-through of this code is available in [this accompanying blog post](https://code.dblock.org/2021/04/27/walking-etherium-transaction-logs-to-find-lost-robbies-using-etherscan-api.html).
 
+An freebie OBJKT NFT was also minted, inspired by this project. Available at [hicetnunc.xyz/objkt/53103](https://www.hicetnunc.xyz/objkt/53103).
+
 ### Run
 
 #### Prerequisites
