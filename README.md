@@ -47,14 +47,14 @@ npm run sales
 
 frame 13 sold for 100.888 ETH on Sat Apr 10 2021 00:40:21 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-13-203
 frame 24 sold for 0.100 ETH on Fri Jul 20 2018 10:32:22 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-24-214
-frame 44 was listed for sale for 350.000 ETH on Sun Apr 25 2021 16:42:41 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-44-234
+frame 44 was listed for sale for 500.000 ETH on Sat May 01 2021 08:14:02 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-44-234
   sold for 110.000 ETH on Mon Apr 19 2021 14:17:32 GMT-0400
 frame 45 sold for 100.888 ETH on Fri Apr 09 2021 15:38:00 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-45-235
-frame 53 was listed for sale for 2500.000 ETH on Wed Mar 24 2021 21:44:31 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-53-243
+frame 53 was listed for sale for 250.000 ETH on Tue May 11 2021 23:07:16 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-53-243
 frame 65 was listed for sale for 545.000 ETH on Sun Apr 04 2021 22:14:41 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-65-255
   sold for 47.000 ETH on Sun Apr 04 2021 08:32:42 GMT-0400
 frame 78 was listed for sale for 222.000 ETH on Fri Apr 23 2021 17:37:51 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-78-268
-frame 92 was listed for sale for 122.000 ETH on Mon Apr 26 2021 16:58:29 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-92-282
+frame 92 was listed for sale for 888.000 ETH on Mon May 03 2021 02:16:57 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-92-282
   sold for 50.000 ETH on Mon Apr 05 2021 13:50:40 GMT-0400
 frame 101 was listed for sale for 5555.000 ETH on Fri Mar 12 2021 07:11:07 GMT-0500 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-101-291
   sold for 1.500 ETH on Mon Dec 02 2019 13:46:32 GMT-0500
@@ -63,6 +63,7 @@ frame 104 was listed for sale for 1000.000 ETH on Mon Mar 15 2021 16:12:56 GMT-0
 frame 149 was listed for sale for 888.000 ETH on Wed Mar 24 2021 08:29:05 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-149-339
   sold for 35.000 ETH on Tue Aug 04 2020 02:06:33 GMT-0400
 frame 153 sold for 16.500 ETH on Wed Jan 01 2020 15:37:56 GMT-0500 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-153-343
+frame 163 was listed for sale for 200.000 ETH on Tue May 11 2021 17:26:59 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-163-353
 frame 165 was listed for sale for 2000.000 ETH on Mon Apr 05 2021 15:52:17 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-165-355
 frame 166 was listed for sale for 2200.000 ETH on Mon Apr 19 2021 22:24:50 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-166-356
   sold for 80.000 ETH on Sat Apr 03 2021 03:56:19 GMT-0400
@@ -72,7 +73,7 @@ frame 175 sold for 0.001 ETH on Sat Jul 11 2020 23:54:29 GMT-0400 | https://supe
   sold for 0.001 ETH on Sat Jul 11 2020 23:14:22 GMT-0400
   sold for 21.000 ETH on Mon Jun 29 2020 22:48:05 GMT-0400
   sold for 1.500 ETH on Sat Dec 21 2019 00:09:56 GMT-0500
-frame 179 was listed for sale for 299.000 ETH on Mon Apr 12 2021 21:17:18 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-179-369
+frame 179 sold for 70.400 ETH on Tue May 04 2021 09:24:10 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-179-369
 frame 206 sold for 60.000 ETH on Wed Apr 07 2021 15:40:30 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-206-396
 frame 269 sold for 125.000 ETH on Mon Apr 05 2021 16:36:12 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-269-459
 frame 275 was listed for sale for 885.000 ETH on Mon Apr 19 2021 22:25:38 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-275-465
