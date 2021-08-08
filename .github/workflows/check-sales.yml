@@ -1,0 +1,39 @@
+name: Check for New Lost Robbie Sales
+
+on:
+  push:
+    branches:
+      - master  
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  check-lost-robbie-sales:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x      
+      - name: Update with new offers or sales
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
+          ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
+        timeout-minutes: 5
+        run: |
+          npm install
+          npm run update
+          npm run sales
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: Updated with new offers or sales.
+          delete-branch: true
+          title: 'Updated with new offers or sales.'
+          body: |
+            Updated with new offers or sales.
+      - name: Check outputs
+        run: |
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
+          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}" 
