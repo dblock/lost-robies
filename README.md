@@ -65,7 +65,8 @@ frame 104 was listed for sale for 1000.000 ETH on Mon Mar 15 2021 16:12:56 GMT-0
 frame 149 was listed for sale for 888.000 ETH on Wed Mar 24 2021 08:29:05 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-149-339
   sold for 35.000 ETH on Tue Aug 04 2020 02:06:33 GMT-0400
 frame 153 sold for 16.500 ETH on Wed Jan 01 2020 15:37:56 GMT-0500 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-153-343
-frame 163 sold for 200.000 ETH on Sun Aug 08 2021 05:30:13 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-163-353
+frame 163 was listed for sale for 499.990 ETH on Sun Aug 08 2021 14:28:21 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-163-353
+  sold for 200.000 ETH on Sun Aug 08 2021 05:30:13 GMT-0400
 frame 165 was listed for sale for 2000.000 ETH on Mon Apr 05 2021 15:52:17 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-165-355
 frame 166 was listed for sale for 222.000 ETH on Wed May 12 2021 02:47:12 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-166-356
   sold for 80.000 ETH on Sat Apr 03 2021 03:56:19 GMT-0400
@@ -80,6 +81,7 @@ frame 175 sold for 0.001 ETH on Sat Jul 11 2020 23:54:29 GMT-0400 | https://supe
   sold for 1.500 ETH on Sat Dec 21 2019 00:09:56 GMT-0500
 frame 179 sold for 70.400 ETH on Tue May 04 2021 09:24:10 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-179-369
 frame 206 sold for 60.000 ETH on Wed Apr 07 2021 15:40:30 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-206-396
+frame 262 was listed for sale for 210.000 ETH on Sun Aug 08 2021 12:41:24 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-262-452
 frame 269 sold for 125.000 ETH on Mon Apr 05 2021 16:36:12 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-269-459
 frame 275 was listed for sale for 885.000 ETH on Mon Apr 19 2021 22:25:38 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-275-465
   sold for 50.000 ETH on Wed Apr 07 2021 19:29:54 GMT-0400
