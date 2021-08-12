@@ -28,14 +28,23 @@ jobs:
           npm install
           npm run update
           npm run sales
+          echo PR_TITLE=$(git diff --unified=0 README.md | tail -n +5 | grep '|' | head -n 1 | cut -d'+' -f2 | awk -F ' on ' '{print $1}') >> $GITHUB_ENV
+          echo PR_BODY=$(git diff --unified=0 README.md | tail -n +5 | grep '^\+' | cut -d'+' -f2 | awk -F ' on ' '{print $1}') >> $GITHUB_ENV
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
-          commit-message: Updated with new offers or sales.
+          commit-message: |
+            Updated with new offers or sales.
+            ${{ env.PR_TITLE }}
           delete-branch: true
-          title: 'Updated with new offers or sales.'
+          title: |
+            Updated: ${{ env.PR_TITLE }}
           body: |
             Updated with new offers or sales.
+
+            ```
+            ${{ env.PR_BODY }}
+            ```
       - name: Check outputs
         run: |
           echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
