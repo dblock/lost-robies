@@ -51,7 +51,7 @@ frame 44 was listed for sale for 1000.000 ETH on Mon Jun 21 2021 17:17:28 GMT-04
   sold for 110.000 ETH on Mon Apr 19 2021 14:17:32 GMT-0400
 frame 45 sold for 100.888 ETH on Fri Apr 09 2021 15:38:00 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-45-235
 frame 53 was listed for sale for 1000.000 ETH on Thu May 13 2021 18:13:57 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-53-243
-frame 60 was listed for sale for 300.000 ETH on Wed Aug 11 2021 15:32:21 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-60-250
+frame 60 was listed for sale for 500.000 ETH on Thu Aug 12 2021 14:34:13 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-60-250
 frame 65 was listed for sale for 545.000 ETH on Sun Apr 04 2021 22:14:41 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-65-255
   sold for 47.000 ETH on Sun Apr 04 2021 08:32:42 GMT-0400
 frame 78 was listed for sale for 1500.000 ETH on Fri Aug 06 2021 18:49:44 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-78-268
