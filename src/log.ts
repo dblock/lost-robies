@@ -38,14 +38,14 @@ async function log() {
   }
 
   results = _.sortBy(results, (row) => row[0]);
-  _.each(results, (result) => result[0] = result[0].toString());
+  _.each(results, (result) => result[0] = result[0].format('YYYY/MM/DD HH:mm'));
   return results;
 }
 
 async function main() {
   try {
     var results = await log();
-    stringify(results, async (error: Error, output: string): Promise<void> => {
+    stringify(results, { delimiter: '\t' }, async (error: Error, output: string): Promise<void> => {
         if (error) { throw error }
         await fs.writeFile("data/log.csv", output);
     });
