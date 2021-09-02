@@ -28,6 +28,7 @@ jobs:
           npm install
           npm run update
           npm run sales
+          npm run log
           echo PR_TITLE=$(git diff --unified=0 README.md | tail -n +5 | grep '|' | head -n 1 | cut -d'+' -f2 | awk -F ' on ' '{print $1}') >> $GITHUB_ENV
           echo PR_BODY=$(git diff --unified=0 README.md | tail -n +5 | grep '^\+' | cut -d'+' -f2 | awk -F ' on ' '{print $1}') >> $GITHUB_ENV
       - name: Create Pull Request
