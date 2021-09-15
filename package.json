@@ -2,26 +2,26 @@
   "name": "lost-robbies",
   "version": "1.0.0",
   "dependencies": {
-    "@types/lodash": "^4.14.168",
+    "@types/lodash": "^4.14.172",
     "async-file": "^2.0.2",
-    "axios": "^0.21.1",
-    "cli-progress": "^3.9.0",
+    "axios": "^0.21.4",
+    "cli-progress": "^3.9.1",
     "csv-stringify": "^5.6.4",
-    "dotenv": "^8.2.0",
-    "ethereum-input-data-decoder": "^0.3.2",
+    "dotenv": "^8.6.0",
+    "ethereum-input-data-decoder": "^0.3.5",
     "etherscan-api": "^10.0.5",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
-    "ts-node": "^10.1.0",
-    "typescript": "^4.3.5"
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
   },
   "devDependencies": {
-    "@types/node": "^14.14.37"
+    "@types/node": "^14.17.16"
   },
   "scripts": {
-    "robbie": "ts-node src/robbie.ts",
-    "update": "ts-node src/update.ts",
-    "sales": "ts-node src/sales.ts",
-    "log": "ts-node src/log.ts"
+    "robbie": "ts-node ./src/robbie.ts",
+    "update": "ts-node ./src/update.ts",
+    "sales": "ts-node ./src/sales.ts",
+    "log": "ts-node ./src/log.ts"
   }
 }
