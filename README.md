@@ -45,7 +45,8 @@ Produce a sales report, including history and what's for sale.
 ```
 npm run sales
 
-frame 7 was listed for sale for 7000.000 ETH on Fri Aug 13 2021 06:28:10 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-7-197
+frame 7 was listed for sale for 700.000 ETH on Fri Sep 17 2021 04:50:05 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-7-197
+frame 8 was listed for sale for 400.000 ETH on Mon Sep 20 2021 18:01:51 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-8-198
 frame 13 sold for 100.888 ETH on Sat Apr 10 2021 00:40:21 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-13-203
 frame 24 sold for 0.100 ETH on Fri Jul 20 2018 10:32:22 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-24-214
 frame 44 was listed for sale for 2000.000 ETH on Mon Aug 23 2021 16:18:28 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-44-234
@@ -64,7 +65,7 @@ frame 92 was listed for sale for 888.000 ETH on Mon May 03 2021 02:16:57 GMT-040
 frame 96 sold for 222.000 ETH on Mon Aug 30 2021 12:58:20 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-96-286
 frame 101 was listed for sale for 5555.000 ETH on Fri Mar 12 2021 07:11:07 GMT-0500 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-101-291
   sold for 1.500 ETH on Mon Dec 02 2019 13:46:32 GMT-0500
-frame 104 was listed for sale for 1000.000 ETH on Mon Mar 15 2021 16:12:56 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-104-294
+frame 104 was listed for sale for 3000.000 ETH on Sun Sep 19 2021 12:08:33 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-104-294
   sold for 19.000 ETH on Thu Jun 11 2020 16:28:09 GMT-0400
 frame 149 was listed for sale for 888.000 ETH on Wed Mar 24 2021 08:29:05 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-149-339
   sold for 35.000 ETH on Tue Aug 04 2020 02:06:33 GMT-0400
