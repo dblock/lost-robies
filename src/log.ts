@@ -33,6 +33,10 @@ async function log() {
       } else if (log.method == 'setSalePrice') {
         var amount = toETH(log.amount);
         results.push([ dt, frameIndex, "list", amount ]);
+      } else if (log.method == 'addNewToken') {
+        results.push([ dt, frameIndex, "mint"]);
+      } else if (log.method == 'bid' && amount) {
+        results.push([ dt, frameIndex, "bid", amount]);
       }
     }
   }
