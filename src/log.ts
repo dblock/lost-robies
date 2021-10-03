@@ -29,20 +29,20 @@ async function log() {
       var dt = moment.unix(parseInt(log.timeStamp, 16));
       if (log.method == 'acceptBid' || log.method == 'buy') {
         var amount = toETH(parseInt(log.data));
-        results.push([ dt, frameIndex, "sale", amount ]);
+        results.push([ frameIndex, "sale", amount, dt ]);
       } else if (log.method == 'setSalePrice') {
         var amount = toETH(log.amount);
-        results.push([ dt, frameIndex, "list", amount ]);
+        results.push([ frameIndex, "list", amount, dt ]);
       } else if (log.method == 'addNewToken') {
-        results.push([ dt, frameIndex, "mint"]);
+        results.push([ frameIndex, "mint", null, dt ]);
       } else if (log.method == 'bid' && amount) {
-        results.push([ dt, frameIndex, "bid", amount]);
+        results.push([ frameIndex, "bid", amount, dt ]);
       }
     }
   }
 
-  results = _.sortBy(results, (row) => row[0]);
-  _.each(results, (result) => result[0] = result[0].format('YYYY/MM/DD HH:mm'));
+  results = _.sortBy(results, (row) => row[3]);
+  _.each(results, (result) => result[3] = result[3].format('YYYY/MM/DD HH:mm'));
   return results;
 }
 
