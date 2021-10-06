@@ -85,7 +85,7 @@ frame 175 sold for 0.001 ETH on Sat Jul 11 2020 23:54:29 GMT-0400 | https://supe
   sold for 21.000 ETH on Mon Jun 29 2020 22:48:05 GMT-0400
   sold for 1.500 ETH on Sat Dec 21 2019 00:09:56 GMT-0500
 frame 179 sold for 70.400 ETH on Tue May 04 2021 09:24:10 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-179-369
-frame 184 was listed for sale for 300.000 ETH on Fri Sep 24 2021 03:39:18 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-184-374
+frame 184 sold for 300.000 ETH on Tue Oct 05 2021 12:23:29 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-184-374
 frame 193 sold for 200.000 ETH on Thu Sep 02 2021 15:47:55 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-193-383
 frame 204 was listed for sale for 2500.000 ETH on Fri Aug 27 2021 19:20:11 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-204-394
 frame 206 was listed for sale for 969.420 ETH on Fri Oct 01 2021 06:39:31 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-206-396
