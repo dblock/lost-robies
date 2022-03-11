@@ -46,7 +46,7 @@ Produce a sales report, including history and what's for sale.
 npm run sales
 
 frame 7 was listed for sale for 399.000 ETH on Wed Mar 02 2022 12:43:49 GMT-0500 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-7-197
-frame 8 was listed for sale for 400.000 ETH on Fri Feb 18 2022 11:59:06 GMT-0500 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-8-198
+frame 8 was listed for sale for 265.000 ETH on Wed Mar 09 2022 16:33:42 GMT-0500 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-8-198
 frame 13 sold for 100.888 ETH on Sat Apr 10 2021 00:40:21 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-13-203
 frame 24 sold for 0.100 ETH on Fri Jul 20 2018 10:32:22 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-24-214
 frame 44 was listed for sale for 2000.000 ETH on Mon Aug 23 2021 16:18:28 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-44-234
@@ -68,7 +68,7 @@ frame 101 was listed for sale for 5555.000 ETH on Fri Mar 12 2021 07:11:07 GMT-0
 frame 104 was listed for sale for 3000.000 ETH on Sun Sep 19 2021 12:08:33 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-104-294
   sold for 19.000 ETH on Thu Jun 11 2020 16:28:09 GMT-0400
 frame 119 was listed for sale for 303.000 ETH on Fri Oct 22 2021 12:43:55 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-119-309
-frame 149 was listed for sale for 360.000 ETH on Thu Jan 27 2022 20:44:08 GMT-0500 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-149-339
+frame 149 was listed for sale for 285.000 ETH on Sun Mar 06 2022 14:27:15 GMT-0500 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-149-339
   sold for 35.000 ETH on Tue Aug 04 2020 02:06:33 GMT-0400
 frame 153 sold for 16.500 ETH on Wed Jan 01 2020 15:37:56 GMT-0500 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-153-343
 frame 163 was listed for sale for 350.000 ETH on Mon Aug 23 2021 05:26:11 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-163-353
