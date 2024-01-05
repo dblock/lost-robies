@@ -77,7 +77,7 @@ frame 153 sold for 16.500 ETH on Wed Jan 01 2020 15:37:56 GMT-0500 | https://sup
 frame 163 was listed for sale for 175.000 ETH on Fri Sep 02 2022 13:37:46 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-163-353
   sold for 200.000 ETH on Sun Aug 08 2021 05:30:13 GMT-0400
 frame 165 was listed for sale for 699.000 ETH on Fri Mar 17 2023 17:10:11 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-165-355
-frame 166 was listed for sale for 333.000 ETH on Thu Jul 13 2023 20:33:11 GMT-0400 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-166-356
+frame 166 sold for 150.000 ETH on Thu Jan 04 2024 18:08:59 GMT-0500 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-166-356
   sold for 80.000 ETH on Sat Apr 03 2021 03:56:19 GMT-0400
 frame 169 sold for 125.000 ETH on Wed Dec 07 2022 22:56:35 GMT-0500 | https://superrare.co/artwork/ai-generated-nude-portrait-7-frame-169-359
   sold for 150.000 ETH on Sat Aug 07 2021 22:48:43 GMT-0400
