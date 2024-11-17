@@ -9,7 +9,7 @@
     "csv-stringify": "^5.6.4",
     "dotenv": "^8.6.0",
     "ethereum-input-data-decoder": "0.3.4",
-    "etherscan-api": "^10.3.0",
+    "etherscan-api": "^100.0.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "ts-node": "^10.2.1",
